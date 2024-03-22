@@ -1,0 +1,11 @@
+FROM centos:7
+
+RUN yum udpate
+
+RUN yum install epel-release -y
+
+RUN yum nginx -y
+
+COPY ./index.html /usr/share/nginx/html
+
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
