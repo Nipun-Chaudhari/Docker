@@ -1,9 +1,9 @@
-FROM ubuntu
+FROM centos:7
 
-RUN apt-get udpate
+RUN yum udpate
 
-RUN apt-get apache2 -y
+RUN yum install httpd -y
 
 COPY ./index.html /var/www/html/
 
-CMD apachectl -D FOREGROUND
+CMD ["httpd" ,"-DFOREGROUND"]
