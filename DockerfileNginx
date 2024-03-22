@@ -1,0 +1,9 @@
+FROM ubuntu
+
+RUN apt-get udpate
+
+RUN apt-get nginx -y
+
+COPY ./index.html /usr/share/nginx/html
+
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
