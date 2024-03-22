@@ -4,12 +4,12 @@ RUN apt-get update
 
 RUN apt-get install openjdk-11-jre -y
 
-ADD curl -O https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.99/bin/apache-tomcat-8.5.99.tar.gz
+ADD curl -O https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.99/bin/apache-tomcat-8.5.99.tar.gz /
 
 RUN tar -xzf apache-tomcat-8.5.99.tar.gz -C /opt
 
 WORKDIR /opt/apache-tomcat-8.5.99/webapps
 
-COPY ./student.war
+COPY ./student.war /opt/apache-tomcat-8.5.99/webapps/
 
 CMD [ "catalina.sh","run"]
